@@ -1,0 +1,33 @@
+   <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            SignIn
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" [(ngModel)]="formData.username" name="username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter password" [(ngModel)]="formData.password" name="password">
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+              <div *ngIf="isLoginSuccess">
+
+                <span style="color:red">Invalid UserName/Password!</span>
+        
+              </div>
+
+              <div class="col-8 mt-2" [routerLink]="['/SignUp']">New User?</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

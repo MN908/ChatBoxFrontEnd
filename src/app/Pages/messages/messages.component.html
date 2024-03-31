@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            Users
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let user of users" (click)="selectUser(user)">
+                {{ user.userName }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            Messages <p style="float: right; color:red;">LoggedIn : {{loginedUserName}}</p>
+          </div>
+          <div class="card-body">
+            <div class="messages-container">
+                <div class="heading">
+                    <h3 style="text-align: center;"><u><span style="color:red;"> Chat</span> Box</u> </h3>
+                  </div>
+                  <div *ngFor="let message of allMessages">
+                    <div *ngIf="message.senderId == loginedUserId" class="sender-message">
+                      <p>{{ message.content }}</p>
+                    </div>
+                    <div *ngIf="message.receiverId == loginedUserId" class="receiver-message">
+                      <p>{{ message.content }}</p>
+                    </div>
+                  </div>
+                  
+              <div class="input-container">
+                <textarea [(ngModel)]="newMessage" class="message-input" placeholder="Type your message..."></textarea>
+                <button (click)="sendMessage()" style="cursor:pointer " class="send-button">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
+  
